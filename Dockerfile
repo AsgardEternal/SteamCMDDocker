@@ -44,4 +44,3 @@ __EOR__
 
 FROM build as prod
 WORKDIR "${USER_HOME}"
-USER "${USER}"
