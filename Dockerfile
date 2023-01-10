@@ -18,13 +18,7 @@ apt-get install -y --no-install-suggests --no-install-recommends \
     lib32gcc-s1=10.2.1-6 \
     ca-certificates=20210119 \
     dnsmasq=2.85-1 \
-    resolvconf=1.87
-
-cat << __EOF__ > /etc/resolv.conf
-nameserver 1.1.1.1
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-__EOF__
+    rsync=3.2.3-4+deb11u1
 
 useradd -m "${USER}"
 su - "${USER}" << __EOC__
