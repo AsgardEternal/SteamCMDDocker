@@ -18,6 +18,7 @@ apt-get install -y --no-install-suggests --no-install-recommends \
     lib32gcc-s1=10.2.1-6 \
     ca-certificates=20210119 \
     dnsmasq=2.85-1 \
+    git=1:2.30.2-1 \
     rsync=3.2.3-4+deb11u1
 
 useradd -m "${USER}"
@@ -28,7 +29,6 @@ su - "${USER}" << __EOC__
     cd "${STEAM_CMD_INSTALL_DIR}"
     pwd
     curl -fsSL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
-    ./${STEAM_CMD_INSTALL_DIR}/steamcmd.sh +quit
 )
 mkdir -p "${steam_cmd_bin_reflection}"
 cat << __EOF__ > "${steam_cmd_bin_reflection}/steamcmd"
@@ -36,7 +36,6 @@ cat << __EOF__ > "${steam_cmd_bin_reflection}/steamcmd"
 ${STEAM_CMD_INSTALL_DIR}/steamcmd.sh \${@}
 __EOF__
 chmod 750 "${steam_cmd_bin_reflection}/steamcmd"
-./${steam_cmd_bin_reflection}/steamcmd +quit
 __EOC__
 
 apt-get remove --purge --auto-remove -y
