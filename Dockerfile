@@ -13,7 +13,7 @@ RUN <<__EOR__
 apt-get update
 apt-get install -y --no-install-suggests --no-install-recommends \
     vim=2:8.2.2434-3+deb11u1 \
-    curl=7.74.0-1.3+deb11u3 \
+    curl=7.74.0-1.3+deb11u5 \
     lib32stdc++6=10.2.1-6 \
     lib32gcc-s1=10.2.1-6 \
     ca-certificates=20210119 \
