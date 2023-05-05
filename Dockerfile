@@ -12,14 +12,14 @@ ARG steam_cmd_bin_reflection="${USER_HOME}/.local/bin"
 RUN <<__EOR__
 apt-get update
 apt-get install -y --no-install-suggests --no-install-recommends \
-    vim=2:8.2.2434-3+deb11u1 \
+    vim \
     curl \
-    lib32stdc++6=10.2.1-6 \
-    lib32gcc-s1=10.2.1-6 \
+    lib32stdc++6 \
+    lib32gcc-s1 \
     ca-certificates=20210119 \
-    dnsmasq=2.85-1 \
-    git=1:2.30.2-1 \
-    rsync=3.2.3-4+deb11u1
+    dnsmasq \
+    git \
+    rsync
 
 useradd -m "${USER}"
 su - "${USER}" << __EOC__
