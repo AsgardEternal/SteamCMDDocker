@@ -34,5 +34,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: "${{ vars.DOCKER_REGISTRY_URL }}/steamcmd:latest"
-        cache-from: type=registry,ref=${{ vars.DOCKER_REGISTRY_URL }}/steamcmd:latest
         cache-to: type=inline
