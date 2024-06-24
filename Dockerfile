@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 
-FROM debian:bullseye-slim AS build
+FROM debian:bookworm-slim AS build
 
 LABEL maintainer="price@orion-technologies.io"
 
@@ -16,7 +16,7 @@ apt-get install -y --no-install-suggests --no-install-recommends \
     curl \
     lib32stdc++6 \
     lib32gcc-s1 \
-    ca-certificates=20210119 \
+    ca-certificates=20230311 \
     dnsmasq \
     git \
     rsync
