@@ -4,10 +4,10 @@ FROM debian:bookworm-slim AS build
 
 LABEL maintainer="price@orion-technologies.io"
 
-ENV USER="steam"
-ENV USER_HOME="/home/${USER}"
-ENV STEAM_CMD_INSTALL_DIR="${USER_HOME}/Steam/steamcmd"
-ARG steam_cmd_bin_reflection="${USER_HOME}/.local/bin"
+ENV STEAM_USER="steam"
+ENV STEAM_HOME="/home/${STEAM_USER}"
+ENV STEAM_CMD_INSTALL_DIR="${STEAM_HOME}/Steam/steamcmd"
+ARG steam_cmd_bin_reflection="${STEAM_HOME}/.local/bin"
 
 RUN <<__EOR__
 apt-get update
@@ -21,8 +21,8 @@ apt-get install -y --no-install-suggests --no-install-recommends \
     git \
     rsync
 
-useradd -m "${USER}"
-su - "${USER}" << __EOC__
+useradd -m "${STEAM_USER}"
+su - "${STEAM_USER}" << __EOC__
 (
 
     mkdir -p "${STEAM_CMD_INSTALL_DIR}"
@@ -44,4 +44,4 @@ rm -rf /var/lib/apt/lists/*
 __EOR__
 
 FROM build as prod
-WORKDIR "${USER_HOME}"
+WORKDIR "${STEAM_HOME}"
